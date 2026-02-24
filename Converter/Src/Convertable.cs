@@ -1,5 +1,4 @@
 ﻿using System.Numerics;
-
 namespace BenScr.Converter
 {
     public struct Convertable<TEnum, TUnderlying> 

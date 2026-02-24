@@ -1,12 +1,12 @@
 ﻿
-public enum Metric : ulong
+public enum LengthUnit : ulong
 {
     Millimeter = 1,
     Centimeter = 10,
     Meter = 1000,
     Kilometer = 1000000
 }
-public enum Memory : ulong
+public enum DataSizeUnit : ulong
 {
     Byte = 1,
     Kilobyte = 1000,
@@ -15,7 +15,7 @@ public enum Memory : ulong
     Terabyte = 1000000000000
 }
 
-public enum Energy : ulong
+public enum EnergyUnity : ulong
 {
     Joule = 1,
     Kilojoule = 1000,
