@@ -1,5 +1,5 @@
 # Converter
-A C# library for converting values
+A C# Library for converting units using enums
 
 ## How to use
 ```csharp
