@@ -1,14 +1,15 @@
 ﻿using System.Numerics;
+
 namespace BenScr.Converter
 {
-    public struct Convertable<TEnum, TUnderlying> 
+    public struct UnitConverter<TEnum, TUnderlying> 
       where TUnderlying : unmanaged, IBinaryInteger<TUnderlying>
       where TEnum : struct, Enum
     {
         public TUnderlying BaseValue { get; private set; }
         public double Value { get; set; }
 
-        public Convertable(TEnum _enum, double value)
+        public UnitConverter(TEnum _enum, double value)
         {
             Value = value;
             BaseValue = EnumUtility.GetUnderlyingValue<TEnum, TUnderlying>(_enum);

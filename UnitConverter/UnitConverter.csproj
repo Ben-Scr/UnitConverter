@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<PackageId>UnitConverterCS</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Ben Schneider</Authors>
+		<Company>Ben Schneider</Company>
+		<Description>A C# Library for converting units using enums</Description>
+
+		<RepositoryUrl>https://github.com/Ben-Scr/UnitConverter</RepositoryUrl>
+		<PackageProjectUrl>https://ko-fi.com/benscr</PackageProjectUrl>
+
+		<RepositoryType>git</RepositoryType>
+
+		<PackageTags>
+			Unit;
+			Converter;
+			Net9.0;
+		</PackageTags>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>icon.png</PackageIcon>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<None Include="../README.md" Pack="true" PackagePath="\" />
+		<None Include="../LICENSE.txt" Pack="true" PackagePath="\" />
+		<None Include="icon.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+</Project>
