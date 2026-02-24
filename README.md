@@ -3,7 +3,7 @@ A C# library for converting values
 
 ## How to use
 ```csharp
-using BenScr.UnitConverter;
+using BenScr.Converter;
 ```
 
 - Define an Enum that you want to use for converting
