@@ -1,4 +1,4 @@
-# Converter
+# Unit Converter
 A C# Library for converting units using enums
 
 ## How to use
