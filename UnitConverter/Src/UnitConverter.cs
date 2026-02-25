@@ -1,24 +1,28 @@
-﻿using System.Numerics;
+﻿using BenScr.UnitConverter;
+using System.Numerics;
 
 namespace BenScr.Converter
 {
-    public struct UnitConverter<TEnum, TUnderlying> 
-      where TUnderlying : unmanaged, IBinaryInteger<TUnderlying>
-      where TEnum : struct, Enum
+    public sealed class UnitConverter<TEnum, TUnderlying> : IUnitConverter
+     where TUnderlying : unmanaged, IBinaryInteger<TUnderlying>
+     where TEnum : struct, Enum
     {
         public TUnderlying BaseValue { get; private set; }
         public double Value { get; set; }
 
-        public UnitConverter(TEnum _enum, double value)
+        public Type EnumType => typeof(TEnum);
+        public Type UnderlyingType => typeof(TUnderlying);
+
+        public UnitConverter(TEnum unit, double value)
         {
             Value = value;
-            BaseValue = EnumUtility.GetUnderlyingValue<TEnum, TUnderlying>(_enum);
+            BaseValue = EnumUtility.GetUnderlyingValue<TEnum, TUnderlying>(unit);
         }
 
-        public void SetEnum(TEnum _enum)
+        public void SetEnum(TEnum unit)
         {
-            BaseValue = EnumUtility.GetUnderlyingValue<TEnum, TUnderlying>(_enum);
-            Value = To(_enum);
+            BaseValue = EnumUtility.GetUnderlyingValue<TEnum, TUnderlying>(unit);
+            Value = To(unit);
         }
 
         public double NormalizedValue() => Convert.ToDouble(BaseValue) * Value;
@@ -28,6 +32,18 @@ namespace BenScr.Converter
             double numerator = Convert.ToDouble(BaseValue) * Value;
             double denominator = Convert.ToDouble(EnumUtility.GetUnderlyingValue<TEnum, TUnderlying>(targetUnit));
             return numerator / denominator;
+        }
+
+        public void SetUnit(Enum unit)
+        {
+            if (unit is not TEnum typed) throw new ArgumentException("Unit has an invalid Enum-Type", nameof(unit));
+            SetEnum(typed);
+        }
+
+        public double To(Enum targetUnit)
+        {
+            if (targetUnit is not TEnum typed) throw new ArgumentException("Unit has an invalid Enum-Type", nameof(targetUnit));
+            return To(typed);
         }
     }
 }
