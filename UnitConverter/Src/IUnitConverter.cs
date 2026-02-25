@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BenScr.UnitConverter
+namespace BenScr.Converter
 {
     public interface IUnitConverter
     {
